@@ -1,5 +1,9 @@
 #TODO: Add a Dockerfile for the build process
-FROM ubuntu:latest
-LABEL authors="User"
+#Syntax: docker build
+#start image with a node application
+FROM node:18-alpine as builder-stage
+# create an application directory
+RUN mkdir -p /app
+WORKDIR /app
 
-ENTRYPOINT ["top", "-b"]
+# run recognition.py
