@@ -1,0 +1,19 @@
+FROM python:3.11
+
+# Corrected typo in the environment variable
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file
+COPY Requirements.txt /app/Requirements.txt
+
+# Install dependencies
+RUN pip install -r /app/Requirements.txt
+
+# Copy the project file
+COPY python-pdf-to-table-project.py /app/python-pdf-to-table-project.py
+
+# Set the command to run the application
+CMD ["python3", "run"]
